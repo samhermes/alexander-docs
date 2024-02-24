@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../img/logo.svg';
+import github from '../img/github.svg';
+---
+
+<header class="site-header">
+    <div class="contain">
+        <p class="site-title">
+            <a href="/">
+                <Image src={logo} alt="" />Alexander
+            </a>
+        </p>
+        <div class="get">
+            <p class="version">1.0.3</p>
+            <a href="https://github.com/samhermes/alexander">
+                <Image src={github} alt="" />
+                <span class="screen-reader-text">Alexander on GitHub</span>
+            </a>
+        </div>
+    </div>
+</header>
+<style lang="scss">
+    .site-header {
+        background: #fff;
+        border-bottom: 1px solid var(--medium-gray);
+        padding: 1rem 1.5rem;
+
+        @media screen and (min-width: 50em) {
+            padding: 1rem 3rem;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: underline;
+            }
+        }
+
+        .contain {
+            display: flex;
+            align-items: center;
+        }
+
+        .site-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+
+            img {
+                display: inline-block;
+                width: 1.7rem;
+                height: 1.7rem;
+                margin-right: 0.45rem;
+                margin-top: -0.25rem;
+            }
+        }
+
+        .get {
+            margin-left: auto;
+        }
+    }
+
+    .get {
+        display: flex;
+
+        a {
+            will-change: opacity;
+            transition: opacity 0.15s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .version {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        padding-right: 1rem;
+        border-right: 1px solid var(--medium-gray);
+        margin-right: 1rem;
+    }
+</style>

@@ -1,6 +1,6 @@
 ---
 title: Paragraph
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Elements
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: Variables
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Base
 ---
 

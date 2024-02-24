@@ -1,5 +1,5 @@
 ---
 title: Stacking System
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Base
 ---

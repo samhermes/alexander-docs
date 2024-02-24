@@ -1,6 +1,6 @@
 ---
 title: Heading
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Elements
 sources:
 - https://type-scale.com/?size=16&scale=1.200

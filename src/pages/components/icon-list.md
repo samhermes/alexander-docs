@@ -1,6 +1,6 @@
 ---
 title: List with Icons
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Components
 ---
 

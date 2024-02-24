@@ -1,6 +1,6 @@
 ---
 title: Card
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Components
 ---
 

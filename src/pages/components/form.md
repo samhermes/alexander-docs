@@ -1,6 +1,6 @@
 ---
 title: Form
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Components
 sources:
 - https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/

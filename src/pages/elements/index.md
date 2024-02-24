@@ -1,6 +1,6 @@
 ---
 title: Elements
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 ---
 
 These elements build on the base styles. Naturally, this is not an exhaustive documentation of all available elements. Only elements that are part of the larger system have been included.

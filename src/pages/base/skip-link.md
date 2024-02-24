@@ -1,6 +1,6 @@
 ---
 title: Skip Link
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Base
 ---
 

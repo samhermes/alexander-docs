@@ -1,6 +1,6 @@
 ---
 title: HTML
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Base
 sources:
 - https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template

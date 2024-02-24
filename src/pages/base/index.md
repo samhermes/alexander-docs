@@ -1,6 +1,6 @@
 ---
 title: Base
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 ---
 
 The base includes only what's needed to get started.

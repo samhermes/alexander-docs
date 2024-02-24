@@ -1,6 +1,6 @@
 ---
 title: List
-layout: '@layouts/Layout.astro'
+layout: '@layouts/PageLayout.astro'
 section: Elements
 ---
 

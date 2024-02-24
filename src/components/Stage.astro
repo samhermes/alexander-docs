@@ -1,0 +1,16 @@
+<script>
+    let menuButton = document.querySelector('.menu-toggle');
+    let menu = document.querySelector('.nav-top');
+    if (menuButton) {
+        menuButton.addEventListener('click', function() {
+            menu.classList.toggle('active');
+        });
+    }
+    let stageToggle = document.querySelector('.stage-toggle');
+    let stage = document.getElementById('stage-styles');
+    if (stageToggle) {
+        stageToggle.addEventListener('click', function() {
+            stage.toggleAttribute('disabled');
+        });
+    }
+</script>
