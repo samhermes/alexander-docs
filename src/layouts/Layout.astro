@@ -15,6 +15,9 @@ const { title } = Astro.props.frontmatter || Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<a class="skip-link screen-reader-text" href="#site-main">Skip to main content</a>
@@ -31,6 +34,10 @@ const { title } = Astro.props.frontmatter || Astro.props;
 		--medium-gray: #dcdcdc;
 		--dark-gray: #1e1e1e;
 
+		--new-tan: #e8e1d4;
+		--new-tan-border: #dcd4c6;
+		--new-tan-bg: rgba(232, 225, 212, 0.141);
+
 		--border-radius: 0.3rem;
 		--border-radius-lg: 0.5rem;
 	}
@@ -38,6 +45,124 @@ const { title } = Astro.props.frontmatter || Astro.props;
 
 	body {
 		font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-		background-color: var(--light-gray);
+		background-color: var(--new-tan-bg);
+		font-family: 'Figtree', sans-serif;
+	}
+
+	code.astro-code:not(.language-plaintext),
+	pre.astro-code {
+		color: #f8f8f2;
+		background: none;
+		text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+		font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+		text-align: left;
+		white-space: pre;
+		word-spacing: normal;
+		word-break: normal;
+		word-wrap: normal;
+		line-height: 1.6;
+		-moz-tab-size: 4;
+		-o-tab-size: 4;
+		tab-size: 4;
+		-webkit-hyphens: none;
+		-moz-hyphens: none;
+		-ms-hyphens: none;
+		hyphens: none;
+	}
+
+	/* Code blocks */
+	pre.astro-code {
+		padding: 1.2rem 1.6rem;
+		margin: 2rem 0;
+		overflow: auto;
+		border-radius: 0.3rem;
+	}
+
+	:not(pre) > code.astro-code,
+	pre.astro-code {
+		background: $blue-dark;
+	}
+
+	/* Inline code */
+	:not(pre) > code.astro-code {
+		padding: .1em .4em;
+		border-radius: 0.3rem;
+		white-space: normal;
+		background: #eee;
+	}
+
+	.token.comment,
+	.token.prolog,
+	.token.doctype,
+	.token.cdata {
+		color: #6272a4;
+	}
+
+	.token.punctuation {
+		color: #f8f8f2;
+	}
+
+	.namespace {
+		opacity: .7;
+	}
+
+	.token.property,
+	.token.tag,
+	.token.constant,
+	.token.symbol,
+	.token.deleted {
+		color: #ff79c6;
+	}
+
+	.token.boolean,
+	.token.number {
+		color: #bd93f9;
+	}
+
+	.token.selector,
+	.token.attr-name,
+	.token.string,
+	.token.char,
+	.token.builtin,
+	.token.inserted {
+		color: #50fa7b;
+	}
+
+	.token.operator,
+	.token.entity,
+	.token.url,
+	.language-css .token.string,
+	.style .token.string,
+	.token.variable {
+		color: #f8f8f2;
+	}
+
+	.token.atrule,
+	.token.attr-value,
+	.token.function,
+	.token.class-name {
+		color: #f1fa8c;
+	}
+
+	.token.keyword {
+		color: #8be9fd;
+	}
+
+	.token.regex,
+	.token.important {
+		color: #ffb86c;
+	}
+
+	.token.important,
+	.token.bold {
+		font-weight: bold;
+	}
+
+	.token.italic {
+		font-style: italic;
+	}
+
+	.token.entity {
+		cursor: help;
 	}
 </style>

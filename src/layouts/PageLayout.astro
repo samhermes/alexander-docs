@@ -3,15 +3,17 @@ import Layout from './Layout.astro';
 
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import PageNav from '../components/PageNav.astro';
+
+const {frontmatter} = Astro.props;
 ---
-<Layout title="frontmatter.title">
+<Layout title={frontmatter.title}>
     <SiteHeader />
     <div class="page">
-        <nav class="page-nav">
-            <!-- {% include 'page-nav.html' %} -->
-        </nav>
+        <PageNav />
           
         <main class="page-content" id="site-main">
+            <h1>{frontmatter.title}</h1>
             <slot />
         </main>
     </div>
@@ -28,118 +30,13 @@ import SiteFooter from '../components/SiteFooter.astro';
             padding: 2.5rem 3rem 4rem;
             display: grid;
             grid-gap: 3%;
+            align-items: start;
             grid-template-columns: minmax(225px, 22%) minmax(0, 1fr);
-        }
-    }
-
-    .page-nav {
-        margin-bottom: 2rem;
-
-        @media screen and (min-width: 50em) {
-            margin-bottom: 0;
-            margin-top: 0.5rem;
-        }
-
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu-toggle {
-            width: 100%;
-            display: block;
-            margin-bottom: 1.2rem;
-            background: var(--medium-gray);
-            color: var(--text-color);
-            font-weight: 600;
-            border: none;
-            border-radius: 0.3rem;
-            padding: 0.5rem;
-
-            @media screen and (min-width: 50em) {
-                display: none;
-            }
-        }
-
-        .nav-top {
-            padding: 1rem 0 0;
-            display: none;
-
-            @media screen and (min-width: 50em) {
-                display: block;
-            }
-
-            &.active {
-                display: block;
-            }
-
-            >li {
-                margin-bottom: 2rem;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        .nav-parent {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        a {
-            text-decoration: none;
-            display: block;
-
-            &:hover,
-            &:focus,
-            &:active {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    .page-grid {
-        display: grid;
-        grid-gap: 1rem;
-        list-style: none;
-        margin: 2rem 0;
-        padding: 0;
-
-        @media screen and (min-width: 37.5em) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        li {
-            font-size: 1.2rem;
-
-            a {
-                text-decoration: none;
-                display: block;
-                padding: 1rem 1.5rem;
-                border: 1px solid var(--medium-gray);
-                box-shadow: 0 2px 3px #f1f1f1;
-                border-radius: 0.8rem;
-                transition: box-shadow 0.3s;
-
-                &:hover {
-                    box-shadow: none;
-                }
-            }
         }
     }
 
     .page-content {
         font-size: 1.2rem;
-        background: #fff;
-        padding: 1.5rem 2rem;
-        border: 1px solid var(--medium-gray);
-        border-radius: 0.625rem;
-
-        @media screen and (min-width: 50em) {
-            padding: 3rem 4rem;
-        }
 
         a {
             word-break: break-word;
@@ -184,10 +81,44 @@ import SiteFooter from '../components/SiteFooter.astro';
             }
         }
     }
+</style>
+
+<style is:global>
+    .page-grid {
+        display: grid;
+        grid-gap: 1rem;
+        list-style: none;
+        margin: 2rem 0;
+        padding: 0;
+
+        @media screen and (min-width: 37.5em) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        li {
+            font-size: 1.2rem;
+
+            a {
+                text-decoration: none;
+                display: block;
+                padding: 1rem 1.5rem;
+                border: 1px solid var(--medium-gray);
+                background: #fff;
+                box-shadow: 0 2px 3px #f1f1f1;
+                border-radius: 0.8rem;
+                transition: border 0.2s;
+
+                &:hover {
+                    border-color: var(--dark-gray);
+                }
+            }
+        }
+    }
 
     .stage {
-        background-color: rgba(var(--medium-gray), 0.2);
-        border-radius: var(--border-radius);
+        background-color: #fff;
+        border: 1px solid var(--new-tan-border);
+        border-radius: 0.4rem;
         padding: 2rem;
         margin: 2rem 0;
         position: relative;
@@ -198,10 +129,9 @@ import SiteFooter from '../components/SiteFooter.astro';
     }
 
     .stage-toggle {
-        background: var(--dark-gray);
+        background: var(--new-tan-border);
         border: none;
         border-radius: 0 var(--border-radius) 0 var(--border-radius);
-        color: #fff;
         font-size: 0.9rem;
         position: absolute;
         top: 0;
@@ -258,4 +188,106 @@ import SiteFooter from '../components/SiteFooter.astro';
             }
         }
     }
+
+    /*
+ * Adjustments to elements and components for display on stage.
+ */
+
+ .js {
+    .accordion-heading {
+        button {
+            padding: 1rem 6rem 1rem 1.5rem;
+            border-top: 2px solid transparent;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-radius: $border-radius $border-radius 0 0;
+
+            @media screen and (prefers-reduced-motion: no-preference) {
+                transition: background-color 0.2s;
+            }
+
+            &::after {
+                content: '';
+                width: 2rem;
+                height: 2rem;
+                position: absolute;
+                top: 50%;
+                right: 1.5rem;
+                transform: translateY(-50%);
+                background: url('../img/accordion/chevron-down.svg') no-repeat center;
+                background-size: 2rem;
+            }
+        }
+    }
+
+    .accordion-content {
+        padding: 0 1.5rem;
+        border-bottom: 2px solid transparent;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
+        border-radius: 0 0 $border-radius $border-radius;
+    }
+
+    .is-active {
+        .accordion-heading {
+            button {
+                background: #fff;
+                border-color: currentColor;
+
+                &::after {
+                    transform: translateY(-50%) scaleY(-1);
+                }
+            }
+        }
+        
+        .accordion-content {
+            background: #fff;
+            border-color: currentColor;
+        }
+    }
+}
+
+input[type="text"],
+textarea {
+    border: 2px solid currentColor;
+    border-radius: $border-radius;
+}
+
+.icon-list {
+    li {
+        &::before {
+            background-image: url('../img/info.svg');
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+[role="tablist"] {
+    button {
+        border-radius: $border-radius $border-radius 0 0;
+        padding: 0.5rem 1rem;
+
+        &[aria-selected="true"] {
+            background: #fff;
+        }
+    }
+}
+
+[role="tabpanel"] {
+    padding: 2rem 2.5rem;
+
+    &[aria-hidden="false"] {
+        background: #fff;
+    }
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid var(--theme-color, "#333");
+    border-radius: 0.4rem;
+    overflow: hidden; /* To apply border radius to image */
+}
 </style>

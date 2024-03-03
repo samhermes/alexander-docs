@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
+import { Code } from 'astro:components';
 import { Image } from 'astro:assets';
 import github from '../img/github.svg';
 import anchor from '../img/anchor.svg';
 import code from '../img/code.svg';
 import box from '../img/box.svg';
-import arrowDownArrow from '../img/arrow-down-circle.svg';
 ---
 
 <Layout title="Alexander">
@@ -16,77 +17,71 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 		<div class="get">
 			<p class="version">Version 1.0.3</p>
 			<a href="https://github.com/samhermes/alexander">
-				<Image src={github} alt="" />
-				<span class="screen-reader-text">Alexander on GitHub</span>
+				GitHub
 			</a>
 		</div>
 	</div>
-	
-	<section class="home-docs">
-		<h2>Learn how to use Alexander</h2>
-		<p>Alexander was built in two distinct levels, a base level that includes browser consistency styles and standard accessibility features, and an implementation level, broken out into elements and components. Include just the base level in your project and or include all for a jump start.</p>
-		<ul class="docs-entry">
-			<li>
-				<a href="/base">
-					<Image src={anchor} alt="" />
-					Base
-				</a>
-			</li>
-			<li>
-				<a href="/elements">
-					<Image src={code} alt="" />
-					Elements
-				</a>
-			</li>
-			<li>
-				<a href="/components">
-					<Image src={box} alt="" />
-					Components
-				</a>
-			</li>
-		</ul>
-	</section>
-	
-	<section class="home-download">
-		<div class="download-intro">
-			<h2>Download and get started</h2>
-			<p>Including Alexander in your own project is easy. Start with the base bundle for unopinionated starter styles, or include the design bundle to get a set of ready-made components.</p>
-		</div>
-		<ul class="download-list">
-			<li>
-				<a href="/alexander/css/alexander-base.css" download>
-					<Image src={arrowDownArrow} alt="" />
-					Bundle - Base
-				</a>
-			</li>
-			<li>
-				<a href="/alexander/css/alexander.css" download>
-					<Image src={arrowDownArrow} alt="" />
-					Bundle - Full
-				</a>
-			</li>
-			<li class="download-source">
-				<a href="https://github.com/samhermes/alexander/archive/refs/heads/master.zip">
-					<Image src={arrowDownArrow} alt="" />
-					All Source Files
-				</a>
-			</li>
-		</ul>
-	</section>
+
+	<div class="home-container">
+		<section class="home-about">
+			<h2>What is Alexander?</h2>
+			<p>Alexander is a minimal foundation for building websites. It goes beyond a CSS reset, but includes less than Bootstrap. It allows you to get going on a fresh web project really quickly.</p>
+			<p><a href="/introduction">Read the Introduction</a></p>
+		</section>
+		
+		<section class="home-docs">
+			<h2>Learn how to use Alexander</h2>
+			<p>Alexander was built in two distinct levels, a base level that includes browser consistency styles and standard accessibility features, and an implementation level, broken out into elements and components. Include just the base level in your project and or include all for a jump start.</p>
+			<ul class="docs-entry">
+				<li>
+					<a href="/base">
+						<Image src={anchor} alt="" />
+						Base
+					</a>
+				</li>
+				<li>
+					<a href="/elements">
+						<Image src={code} alt="" />
+						Elements
+					</a>
+				</li>
+				<li>
+					<a href="/components">
+						<Image src={box} alt="" />
+						Components
+					</a>
+				</li>
+			</ul>
+		</section>
+		
+		<section class="home-start">
+			<div class="start-intro">
+				<h2>Get started</h2>
+				<p>Including Alexander in your own project is easy, and you can use only what you need. Start with the base bundle for unopinionated starter styles, and include individual components as needed.</p>
+				<div class="bash-wrapper">
+					<Code code={`npm install samhermes/alexander#1.0.3`} lang="bash" />
+				</div>
+				<p><a href="/introduction">Read setup docs</a></p>
+			</div>
+		</section>
+	</div>
+
+	<SiteFooter />
 </Layout>
 
 <style lang="scss">
 	.home-intro {
-		width: 100%;
 		position: relative;
-		background-color: #fff;
-		border-bottom: 1px solid var(--medium-gray);
+		background-color: var(--new-tan);
+		border: 1px solid var(--new-tan-border);
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		justify-content: center;
 		text-align: center;
 		padding: 4rem 0;
+		margin: 1rem 1rem 0;
+		border-radius: 1rem;
 
 		.site-icon {
 			color: var(--text-color);
@@ -107,13 +102,41 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 			text-transform: uppercase;
 			margin-bottom: 2.5rem;
 		}
+
+		.get {
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+
+			a {
+				background: var(--dark-gray);
+				border-radius: 3rem;
+				padding: 0.5rem 1.125rem;
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+
+		.version {
+			font-size: 1.125rem;
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+	}
+
+	.home-container {
+		padding: 3rem 0 8rem;
+
+		@media screen and (min-width: 37.5em) {
+			padding-top: 4.5rem;
+		}
 	}
 
 	section {
-		padding: 3rem 1rem;
+		padding: 0 1rem 3rem;
 
 		@media screen and (min-width: 37.5em) {
-			padding: 4.5rem 2rem;
+			padding: 0 2rem 4.5rem;
 		}
 
 		h2 {
@@ -127,8 +150,16 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 
 		ul {
 			list-style: none;
-			margin: 0 auto;
 			padding: 0;
+		}
+	}
+
+	.home-about {
+		text-align: center;
+
+		p {
+			max-width: 48rem;
+			margin: 0 auto 3rem;
 		}
 	}
 
@@ -144,8 +175,8 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 	.docs-entry {
 		display: grid;
 		grid-gap: 2rem;
-		max-width: 62.5rem;
-		margin-bottom: 1rem;
+		max-width: 68.75rem;
+		margin: 0 auto 1rem;
 
 		@media screen and (min-width: 37.5em) {
 			grid-template-columns: repeat(3, 1fr);
@@ -162,12 +193,12 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 				border: 1px solid var(--medium-gray);
 				border-radius: 0.8rem;
 				box-shadow: 0 2px 3px var(--box-shadow);
-				transition: box-shadow 0.3s;
+				transition: border 0.2s;
 
 				&:hover,
 				&:focus,
 				&:active {
-					box-shadow: none;
+                    border-color: var(--dark-gray);
 				}
 			}
 
@@ -178,18 +209,11 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 		}
 	}
 
-	.home-download {
-		padding-bottom: 8rem;
-
-		@media screen and (min-width: 37.5em) {
-			display: grid;
-			grid-template-columns: minmax(0, 29.25rem) minmax(0, 29.25rem);
-			justify-content: center;
-			grid-gap: 4rem;
-		}
+	.home-start {
+		padding-bottom: 0;
+		text-align: center;
 
 		h2 {
-			text-align: left;
 			margin-bottom: 1.5rem;
 		}
 
@@ -197,62 +221,15 @@ import arrowDownArrow from '../img/arrow-down-circle.svg';
 			margin-bottom: 2rem;
 
 			@media screen and (min-width: 37.5em) {
-				max-width: 28rem;
-				margin-bottom: 0;
+				max-width: 48rem;
+				margin: 0 auto 2rem;
 			}
 		}
-	}
 
-	.download-list {
-		display: grid;
-		grid-gap: 1rem;
-		margin: 0;
-
-		li {
-			font-size: 1.2rem;
-
-			a {
-				display: block;
-				text-decoration: none;
-				padding: 0.5rem 1rem;
-				background-color: #fff;
-				border: 1px solid var(--medium-gray);
-				border-radius: 0.5rem;
-				box-shadow: 0 2px 3px var(--box-shadow);
-				transition: box-shadow 0.3s;
-		
-				&:hover {
-					box-shadow: none;
-				}
-		
-				img {
-					margin: -0.15rem 0.6rem 0 0;
-					width: 1.2rem;
-					height: 1.2rem;
-				}
-			}
+		.bash-wrapper {
+			max-width: 40rem;
+			margin-left: auto;
+			margin-right: auto;
 		}
-	}
-
-	.get {
-		display: flex;
-
-		a {
-			will-change: opacity;
-			transition: opacity 0.15s cubic-bezier(0.65, 0.05, 0.36, 1);
-
-			&:hover {
-				opacity: 0.5;
-			}
-		}
-	}
-
-	.version {
-		font-size: 1.125rem;
-		font-weight: 600;
-		margin-bottom: 0;
-		padding-right: 1rem;
-		border-right: 1px solid var(--medium-gray);
-		margin-right: 1rem;
 	}
 </style>

@@ -1,0 +1,117 @@
+---
+
+---
+
+<nav class="page-nav">
+    <button type="button" class="menu-toggle">Menu</button>
+    <ul class="nav-top">
+        <li>
+            <p class="nav-parent"><a href="/introduction">Introduction</a></p>
+        </li>
+        <li>
+            <p class="nav-parent"><a href="/base">Base</a></p>
+            <ul>
+                <li><a href="/base/html">HTML</a></li>
+                <li><a href="/base/styles">Styles</a></li>
+                <li><a href="/base/screen-reader-text">Screen Reader Text</a></li>
+                <li><a href="/base/skip-link">Skip Link</a></li>
+            </ul>
+        </li>
+        <li>
+            <p class="nav-parent"><a href="/elements">Elements</a></p>
+            <ul>
+                <li><a href="/elements/blockquote">Blockquote</a></li>
+                <li><a href="/elements/heading">Heading</a></li>
+                <li><a href="/elements/hr">HR</a></li>
+                <li><a href="/elements/list">List</a></li>
+                <li><a href="/elements/paragraph">Paragraph</a></li>
+            </ul>
+        </li>
+        <li>
+            <p class="nav-parent"><a href="/components">Components</a></p>
+            <ul>
+                <li><a href="/components/accordion">Accordion</a></li>
+                <li><a href="/components/button">Button</a></li>
+                <li><a href="/components/card">Card</a></li>
+                <li><a href="/components/form">Form</a></li>
+                <li><a href="/components/icon-list">Icon List</a></li>
+                <li><a href="/components/tabs">Tabs</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<style lang="scss">
+    .page-nav {
+        margin-bottom: 2rem;
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        font-size: 1.125rem;
+
+        @media screen and (min-width: 50em) {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-toggle {
+            width: 100%;
+            display: block;
+            margin-bottom: 1.2rem;
+            background: var(--medium-gray);
+            color: var(--text-color);
+            font-weight: 600;
+            border: none;
+            border-radius: 0.3rem;
+            padding: 0.5rem;
+
+            @media screen and (min-width: 50em) {
+                display: none;
+            }
+        }
+
+        .nav-top {
+            padding: 1rem 0 0;
+            display: none;
+
+            @media screen and (min-width: 50em) {
+                display: block;
+            }
+
+            &.active {
+                display: block;
+            }
+
+            >li {
+                margin-bottom: 2rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .nav-parent {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: underline;
+            }
+        }
+    }
+</style>
