@@ -1,16 +1,144 @@
+---
+import '/node_modules/@samhermes/alexander/scss/components/_accordion.scss';
+import '/node_modules/@samhermes/alexander/scss/components/_card.scss';
+import '/node_modules/@samhermes/alexander/scss/components/_form.scss';
+import '/node_modules/@samhermes/alexander/scss/components/_icon-list.scss';
+import '/node_modules/@samhermes/alexander/scss/components/_tabs.scss';
+import '/node_modules/@samhermes/alexander/scss/components/_video.scss';
+---
+
+<div class="stage">
+    <!-- <button type="button" class="stage-toggle">Toggle Stage Styles</button> -->
+    <slot />
+</div>
+
 <script>
-    let menuButton = document.querySelector('.menu-toggle');
-    let menu = document.querySelector('.nav-top');
-    if (menuButton) {
-        menuButton.addEventListener('click', function() {
-            menu.classList.toggle('active');
-        });
-    }
+    import { Accordion, Tabs, Video } from '@samhermes/alexander';
+
+    new Accordion();
+    new Tabs();
+    new Video();
+
     let stageToggle = document.querySelector('.stage-toggle');
     let stage = document.getElementById('stage-styles');
     if (stageToggle) {
         stageToggle.addEventListener('click', function() {
-            stage.toggleAttribute('disabled');
+            stage?.toggleAttribute('disabled');
         });
     }
 </script>
+
+<style lang="scss" is:global>
+    .stage {
+        // .stage-toggle {
+        //     background: var(--new-tan-border);
+        //     border: none;
+        //     border-radius: 0 var(--border-radius) 0 var(--border-radius);
+        //     font-size: 0.9rem;
+        //     position: absolute;
+        //     top: 0;
+        //     right: 0;
+        //     padding: 0.4rem 0.8rem;
+        // }
+
+        alexander-accordion {
+            .accordion-heading {
+                button {
+                    padding: 1rem 6rem 1rem 1.5rem;
+                    border-top: 2px solid transparent;
+                    border-left: 2px solid transparent;
+                    border-right: 2px solid transparent;
+                    border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+                    @media screen and (prefers-reduced-motion: no-preference) {
+                        transition: background-color 0.2s;
+                    }
+
+                    &::after {
+                        content: '';
+                        width: 2rem;
+                        height: 2rem;
+                        position: absolute;
+                        top: 50%;
+                        right: 1.5rem;
+                        transform: translateY(-50%);
+                        background: url('/public/accordion/chevron-down.svg') no-repeat center;
+                        background-size: 2rem;
+                    }
+                }
+            }
+
+            .accordion-content {
+                padding: 0 1.5rem;
+                border-bottom: 2px solid transparent;
+                border-left: 2px solid transparent;
+                border-right: 2px solid transparent;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+
+            &.is-active {
+                .accordion-heading {
+                    button {
+                        background: #fff;
+                        border-color: currentColor;
+
+                        &::after {
+                            transform: translateY(-50%) scaleY(-1);
+                        }
+                    }
+                }
+                
+                .accordion-content {
+                    background: #fff;
+                    border-color: currentColor;
+                }
+            }
+        }
+
+        input[type="text"],
+        textarea {
+            border: 2px solid currentColor;
+            border-radius: var(--border-radius);
+        }
+
+        .icon-list {
+            li {
+                &::before {
+                    background-image: url('/public/info.svg');
+                }
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        alexander-tabs {
+            [role="tablist"] {
+                button {
+                    border-radius: var(--border-radius) var(--border-radius) 0 0;
+                    padding: 0.5rem 1rem;
+
+                    &[aria-selected="true"] {
+                        background: #fff;
+                    }
+                }
+            }
+
+            [role="tabpanel"] {
+                padding: 2rem 2.5rem;
+
+                &[aria-hidden="false"] {
+                    background: #fff;
+                }
+            }
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid var(--theme-color, "#333");
+            border-radius: 0.4rem;
+            overflow: clip; /* To apply border radius to image */
+        }
+    }
+</style>

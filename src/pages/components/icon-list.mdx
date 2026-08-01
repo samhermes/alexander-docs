@@ -3,9 +3,9 @@ title: List with Icons
 layout: '@layouts/PageLayout.astro'
 section: Components
 ---
+import Stage from "../../components/Stage.astro"
 
-<div class="stage">
-    <button type="button" class="stage-toggle">Toggle Stage Styles</button>
+<Stage>
     <ul class="icon-list">
         <li class="icon-1">List item 1</li>
         <li class="icon-2">
@@ -14,7 +14,7 @@ section: Components
         </li>
         <li class="icon-3">List item 3</li>
     </ul>
-</div>
+</Stage>
 
 ```html
 <ul class="icon-list">

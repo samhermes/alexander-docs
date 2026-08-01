@@ -3,10 +3,10 @@ title: Tabs
 layout: '@layouts/PageLayout.astro'
 section: Components
 ---
+import Stage from "../../components/Stage.astro"
 
-<div class="stage">
-    <button type="button" class="stage-toggle">Toggle Stage Styles</button>
-    <div class="tabs">
+<Stage>
+    <alexander-tabs>
         <ul role="tablist">
             <li role="presentation">
                 <button type="button" id="tab-1" role="tab" aria-controls="tab-1-panel" aria-selected="true">Tab 1</button>
@@ -27,14 +27,14 @@ section: Components
         <div id="tab-3-panel" role="tabpanel" aria-labelledby="tab-3" aria-hidden="true">
             <p>Tab 3 content</p>
         </div>
-    </div>
-</div>
+    </alexander-tabs>
+</Stage>
 
 There is a condition that we need to keep in mind with these tabs:
 - No JavaScript enabled
 
 ```html
-<div class="tabs">
+<alexander-tabs>
     <ul role="tablist">
         <li role="presentation">
             <button type="button" id="tab-1" role="tab" aria-controls="tab-1-panel" aria-selected="true">Tab 1</button>
@@ -55,7 +55,7 @@ There is a condition that we need to keep in mind with these tabs:
     <div id="tab-3-panel" role="tabpanel" aria-labelledby="tab-3" aria-hidden="true">
         <p>Tab 3 content</p>
     </div>
-</div>
+</alexander-tabs>
 ```
 
 ```css
@@ -97,6 +97,5 @@ There is a condition that we need to keep in mind with these tabs:
     <a href="https://samhermes.com/posts/how-to-improve-accessibility-tabs/">
         <p>Learn more about implementing this component:</p>
         <p class="link-text">samhermes.com/posts/how-to-improve-accessibility-tabs</p>
-        {% include 'icons/external-link.svg' %}
     </a>
 </div>

@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
     markdown: {
@@ -6,4 +7,5 @@ export default defineConfig({
             theme: 'houston',
         },
     },
+    integrations: [mdx()],
 });

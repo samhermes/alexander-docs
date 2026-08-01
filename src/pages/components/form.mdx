@@ -7,25 +7,26 @@ sources:
 - https://css-tricks.com/better-form-inputs-for-better-mobile-user-experiences/
 - https://css-tricks.com/enterkeyhint/
 ---
+import Stage from "../../components/Stage.astro"
+
 First, of note, the component-level styles include cross-browser fixes, and other general improvements to the rendering of form elements. As these should only be included in a project only if forms are in use, they are not included in the base level styles.
 
-<div class="stage">
-    <button type="button" class="stage-toggle">Toggle Stage Styles</button>
+<Stage>
     <form class="form">
         <div class="input-group">
             <label for="text">Text input label</label>
-            <input type="text" id="text">
+            <input type="text" id="text" />
         </div>
         <div class="input-group">
             <label for="number">Number input label</label>
-            <input type="text" id="number" inputmode="numeric" pattern="[0-9]*">
+            <input type="text" id="number" inputmode="numeric" pattern="[0-9]*" />
         </div>
         <div class="input-group">
             <label for="textarea">Textarea label</label>
             <textarea id="textarea"></textarea>
         </div>
     </form>
-</div>
+</Stage>
 
 I like to use a `div` element with a class name of `.input-group` to wrap form inputs. It allows for consistent spacing between each label and input pair.
 
