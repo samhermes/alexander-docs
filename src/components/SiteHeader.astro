@@ -1,6 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import github from '/public/github-light.svg';
+import GithubIcon from '/public/github-light.svg';
 ---
 
 <header class="site-header">
@@ -13,7 +12,7 @@ import github from '/public/github-light.svg';
         <div class="get">
             <p class="version">1.1.1</p>
             <a href="https://github.com/samhermes/alexander">
-                <Image src={github} alt="" />
+                <GithubIcon aria-hidden="true" focusable="false" />
                 <span class="screen-reader-text">Alexander on GitHub</span>
             </a>
         </div>

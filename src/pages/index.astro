@@ -3,10 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 
 import { Code } from 'astro:components';
-import { Image } from 'astro:assets';
-import anchor from '/public/anchor.svg';
-import code from '/public/code.svg';
-import box from '/public/box.svg';
+import AnchorIcon from '/public/anchor.svg';
+import CodeIcon from '/public/code.svg';
+import BoxIcon from '/public/box.svg';
 ---
 
 <Layout title="Alexander">
@@ -34,19 +33,19 @@ import box from '/public/box.svg';
 			<ul class="docs-entry">
 				<li>
 					<a href="/base">
-						<Image src={anchor} alt="" />
+						<AnchorIcon aria-hidden="true" focusable="false" />
 						Base
 					</a>
 				</li>
 				<li>
 					<a href="/elements">
-						<Image src={code} alt="" />
+						<CodeIcon aria-hidden="true" focusable="false" />
 						Elements
 					</a>
 				</li>
 				<li>
 					<a href="/components">
-						<Image src={box} alt="" />
+						<BoxIcon aria-hidden="true" focusable="false" />
 						Components
 					</a>
 				</li>
@@ -216,7 +215,7 @@ import box from '/public/box.svg';
 				}
 			}
 
-			img {
+			svg {
 				display: block;
 				margin: 0.2rem auto 1rem;
 			}
