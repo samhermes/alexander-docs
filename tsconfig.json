@@ -2,7 +2,12 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "paths": {
-      "@layouts/*": ["./src/layouts/*"]
+      "@layouts/*": [
+        "./src/layouts/*"
+      ]
     }
-  }
+  },
+  "include": [
+    "./worker-configuration.d.ts"
+  ]
 }
