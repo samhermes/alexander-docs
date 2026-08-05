@@ -11,4 +11,5 @@ Meant to be merely a starting place, these components only come with the very ba
     <li><a href="/components/form">Form</a></li>
     <li><a href="/components/icon-list">Icon List</a></li>
     <li><a href="/components/tabs">Tabs</a></li>
+    <li><a href="/components/video">Video</a></li>
 </ul>

@@ -26,3 +26,27 @@ import Stage from "../../components/Stage.astro"
     <li class="icon-3">List item 3</li>
 </ul>
 ```
+
+```css
+.icon-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.icon-list li {
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 0.7rem;
+}
+
+.icon-list li::before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0;
+    width: 1.3rem;
+    height: 1.3rem;
+    background-size: 1.3rem;
+    background-repeat: no-repeat;
+}
+```

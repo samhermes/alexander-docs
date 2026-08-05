@@ -43,6 +43,96 @@ There are several conditions that we need to keep in mind with this accordion:
 </alexander-accordion>
 ```
 
+```css
+alexander-accordion {
+    margin-bottom: 2rem;
+}
+
+alexander-accordion:last-child {
+    margin-bottom: 0;
+}
+
+alexander-accordion.is-accordion {
+    margin-bottom: 0.5rem;
+}
+
+alexander-accordion.is-accordion .accordion-heading {
+    cursor: pointer;
+    position: relative;
+}
+
+alexander-accordion.is-accordion .accordion-heading h2,
+alexander-accordion.is-accordion .accordion-heading h3,
+alexander-accordion.is-accordion .accordion-heading h4,
+alexander-accordion.is-accordion .accordion-heading h5,
+alexander-accordion.is-accordion .accordion-heading h6 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+alexander-accordion.is-accordion .accordion-heading h2 button,
+alexander-accordion.is-accordion .accordion-heading h3 button,
+alexander-accordion.is-accordion .accordion-heading h4 button,
+alexander-accordion.is-accordion .accordion-heading h5 button,
+alexander-accordion.is-accordion .accordion-heading h6 button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+alexander-accordion.is-accordion .accordion-heading h2 button:hover,
+alexander-accordion.is-accordion .accordion-heading h2 button:focus,
+alexander-accordion.is-accordion .accordion-heading h3 button:hover,
+alexander-accordion.is-accordion .accordion-heading h3 button:focus,
+alexander-accordion.is-accordion .accordion-heading h4 button:hover,
+alexander-accordion.is-accordion .accordion-heading h4 button:focus,
+alexander-accordion.is-accordion .accordion-heading h5 button:hover,
+alexander-accordion.is-accordion .accordion-heading h5 button:focus,
+alexander-accordion.is-accordion .accordion-heading h6 button:hover
+alexander-accordion.is-accordion .accordion-heading h6 button:focus {
+    text-decoration: underline;
+}
+
+alexander-accordion.is-accordion .accordion-content {
+    overflow: hidden;
+    height: 0;
+    visibility: hidden;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+    alexander-accordion.is-accordion .accordion-content {
+        transition: height 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+    }
+}
+
+@media print {
+    alexander-accordion.is-accordion .accordion-content {
+        height: auto;
+        visibility: visible;
+    }
+}
+
+alexander-accordion.is-accordion .accordion-content > :first-child {
+    padding-top: 1rem;
+}
+
+alexander-accordion.is-accordion .accordion-content > :last-child {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+}
+
+alexander-accordion.is-accordion.is-active .accordion-content {
+    visibility: visible;
+}
+```
+
 <div class="article-feature">
     <a href="https://samhermes.com/posts/how-to-make-accessible-accordions/">
         <p>Learn more about implementing this component:</p>

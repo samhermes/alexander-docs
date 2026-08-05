@@ -140,5 +140,34 @@ import '/node_modules/@samhermes/alexander/scss/components/_video.scss';
             border-radius: 0.4rem;
             overflow: clip; /* To apply border radius to image */
         }
+
+        alexander-video {
+            display: block;
+            position: relative;
+
+            .video-controls {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+            .control-play,
+            .control-pause {
+                border-radius: 50%;
+                background-color: #ffffff2e;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 1.5rem;
+            }
+
+            .control-play {
+                background-image: url('/video/play.svg');
+                background-position: calc(50% + 1px) center;
+            }
+
+            .control-pause {
+                background-image: url('/video/pause.svg');
+            }
+        }
     }
 </style>

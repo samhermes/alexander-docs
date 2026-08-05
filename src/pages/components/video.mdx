@@ -5,9 +5,11 @@ section: Components
 ---
 import Stage from "../../components/Stage.astro"
 
+When a video element is used in a way that the native browser controls won't work or the video is part of the art direction, a custom video control can be used. This is especially important for videos that autoplay and loop, such as the example shown below. This component attaches to the video element and swap between either pause or play.
+
 <Stage>
     <alexander-video>
-        <video playsinline src="https://upload.wikimedia.org/wikipedia/commons/9/99/Animation_of_Rotating_Earth_at_Night.webm" style="width:100%;height:auto;border-radius:var(--border-radius);"></video>
+        <video autoplay loop playsinline src="https://upload.wikimedia.org/wikipedia/commons/9/99/Animation_of_Rotating_Earth_at_Night.webm" style="width:100%;height:auto;border-radius:var(--border-radius);"></video>
     </alexander-video>
 </Stage>
 
@@ -15,4 +17,20 @@ import Stage from "../../components/Stage.astro"
 <alexander-video>
     <video playsinline src="https://upload.wikimedia.org/wikipedia/commons/9/99/Animation_of_Rotating_Earth_at_Night.webm"></video>
 <alexander-video>
+```
+
+```css
+.video-controls button {
+    background: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 0;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+}
+
+.video-controls .hidden {
+    display: none;
+}
 ```
